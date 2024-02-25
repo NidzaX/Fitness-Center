@@ -1,0 +1,75 @@
+﻿@using WebProject.Models
+@model IEnumerable<Comment>
+@{ 
+    string username = Session["LoggedUser"] as string;
+    Dictionary<string, User> users = (Dictionary<string, User>)HttpContext.Current.Application["Users"];
+}
+
+<div class="jumbotron">
+    @{
+        foreach (var centre in users[username].FitnessCentres)
+        {
+            if (!centre.Deleted)
+            {
+                <h3 class="text-info">@centre.CenterName</h3>
+
+                <table class="table">
+                    <tr>
+                        <th>Username</th>
+                        <th>Grade</th>
+                        <th>Comment</th>
+                        <th>Status</th>
+                    </tr>
+                    @{
+                        foreach (var comment in Model)
+                        {
+                            if (comment.FitnessCenter == centre.CenterName)
+                            {
+                    <tr>
+
+                        <td>@comment.Visitor</td>
+                        <td>@comment.Grade</td>
+                        <td>@comment.VisitorsComment</td>
+
+
+                        @{
+                            if (comment.Approved && !comment.Declined)
+                            {
+                                <td class="text-primary">Approved</td>
+                            }
+                            if (comment.Declined && !comment.Approved)
+                            {
+                                <td class="text-primary">Declined</td>
+                            }
+                            if (!comment.Declined && !comment.Approved)
+                            {
+
+                                <td>
+                                    <form action="/Owner/ApproveComment" method="post">
+                                        <input type="hidden" name="commentId" value="@comment.Id" />
+                                        <input type="submit" value="Approve" class="btn btn-primary" />
+
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/Owner/DeclineComment" method="post">
+                                        <input type="hidden" name="commentId" value="@comment.Id" />
+                                        <input type="submit" value="Decline" class="btn btn-primary" />
+
+                                    </form>
+                                </td>
+                            }
+                        }
+                    </tr>
+                             }
+                        }
+
+                        }
+
+                </table>
+                }
+            }
+        }
+
+</div>
+

@@ -1,0 +1,53 @@
+﻿<div class="jumbotron">
+    @{ if (ViewBag.Message != string.Empty)
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+            }
+        }
+
+    }
+                <form action="/Login/Register" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" required class="form-control" name="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" required class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" required class="form-control" id="name" name="name" placeholder="Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" required class="form-control" name="lastname" placeholder="Lastname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of birth</label>
+                        <input type="date" required class="form-control" name="dateOfBirth" placeholder="DateOfBirth">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" required name="email" placeholder="email@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" name="gender">
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Otker">Other</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" value="Register">Register</button>
+                    <a href="~/Home/Index" class="btn btn-danger">Cancel</a>
+                </form>
+</div>

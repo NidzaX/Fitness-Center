@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Username>newTrainer22</Username>
+  <Name>Milos</Name>
+  <Lastname>Milos</Lastname>
+  <Password>1234</Password>
+  <DateOfBirth>2004-02-08</DateOfBirth>
+  <Email>email@email.com</Email>
+  <Gender>Male</Gender>
+  <UserRole>Trainer</UserRole>
+  <LoginBlocked>true</LoginBlocked>
+  <GroupTrainings />
+  <FitnessCentre>NewFit</FitnessCentre>
+</User>

@@ -1,0 +1,75 @@
+﻿@using WebProject.Models
+@{
+    List<FitnessCentre> fitnessCentres = HttpContext.Current.Application["FitnessCentres"] as List<FitnessCentre>;
+}
+
+
+
+<div class="row">
+
+    </br>
+    <div class="col-md-12">
+        <form action="/Home/SearchParameters" method="post">
+            <div class="form-inline">
+                <input type="text" name="name" placeholder="Name" class="form-control" />
+                <input type="text" name="address" class="form-control" placeholder="Address" />
+                <input type="number" min="2000" name="minYear" class="form-control" placeholder="Min opening year" />
+                <input type="number" min="2000" name="maxYear" class="form-control" placeholder="Max opening year" />
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+        </br>
+    </div>
+    <div class="col-md-4">
+        <form action="/Home/Sort" method="post">
+            <div class="form-inline">
+                <select name="sortValue" class="form-control">
+                    <option value="nameAscending">Name ascending</option>
+                    <option value="addressAscending">Address ascending</option>
+                    <option value="yearAscending">Opening year ascending</option>
+                    <option value="nameDescending">Name descending</option>
+                    <option value="addressDescending">Address descending</option>
+                    <option value="yearDescending">Opening year descending</option>
+                </select>
+                <input type="submit" value="Sort" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+</br></br>
+
+
+<div class="jumbotron">
+    <table class="table">
+
+        <tr>
+            <th>Centre name</th>
+            <th>Address</th>
+            <th>Opening year</th>
+            <th>Details</th>
+        </tr>
+
+        @{
+            foreach (var centre in fitnessCentres)
+            {
+                <tr>
+
+                    <td>@centre.CenterName</td>
+                    <td>@centre.Address</td>
+                    <td>@centre.OpeningYear</td>
+                    <td>
+                        <form action="/Home/Details" method="post">
+                            <input type="hidden" name="centreName" value="@centre.CenterName" />
+                            <input type="submit" value="Details" class="btn btn-primary" />
+
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>

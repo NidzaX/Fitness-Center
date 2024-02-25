@@ -1,0 +1,65 @@
+﻿@using WebProject.Models
+@model IEnumerable<FitnessCentre>
+
+
+<div class="jumbotron">
+
+    @{ if (ViewBag.Message != "")
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+                
+            }
+        }
+
+    }
+
+                <table class="table">
+                    <tr>
+                        <th>Centre name</th>
+                        <th>Address</th>
+                        <th>Opening year</th>
+                        <th>Monthly cost</th>
+                        <th>Yearly cost</th>
+                        <th>Training cost</th>
+                        <th>Group cost</th>
+                        <th>Personal t. cost</th>
+                        <th>Modify</th>
+                        <th>Delete</th>
+                    </tr>
+                    @{
+                        foreach (var centre in Model)
+                        {
+                    <tr>
+
+                        <td>@centre.CenterName</td>
+                        <td>@centre.Address</td>
+                        <td>@centre.OpeningYear</td>
+                        <td>@centre.MonthlyMembership din</td>
+                        <td>@centre.YearlyMembership din</td>
+                        <td>@centre.TrainingCost din</td>
+                        <td>@centre.GroupTrainingCost din</td>
+                        <td>@centre.PersonalTrainingCost din</td>
+                        
+                        <td>
+                            <form action="/Owner/ModifyCentrePrepare" method="post">
+                                <input type="hidden" name="centreName" value="@centre.CenterName" />
+                                <input type="submit" value="Modify" class="btn btn-primary" />
+
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/Owner/DeleteCentre" method="post">
+                                <input type="hidden" name="centreName" value="@centre.CenterName" />
+                                <input type="submit" value="Delete" class="btn btn-primary" />
+
+                            </form>
+                        </td>
+                    </tr>
+                    
+                        }
+                    }
+                </table>
+</div>

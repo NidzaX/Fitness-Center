@@ -1,0 +1,68 @@
+﻿@using WebProject.Models
+@model IEnumerable<GroupTraining>
+<div class="jumbotron">
+
+    @{
+        if (ViewBag.Message != "")
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+            }
+        }
+
+    }
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Training type</th>
+            <th>Length</th>
+            <th>Time of training</th>
+            <th>Max visitors</th>
+            <th>Enrolled visitors</th>
+            <th>Modify</th>
+            <th>Delete</th>
+            <th>Show Visitors</th>
+
+        </tr>
+        @{
+            foreach (var training in Model)
+            {
+        <tr>
+            <td>@training.TrainingName</td>
+            <td>@training.TrainingType</td>
+            <td>@training.Length</td>
+            <td>@training.TimeOfTraining.ToString("dd-M-yyyy HH:mm")</td>
+            <td>@training.AllowedVisitors</td>
+            <td>@training.Visitors.Count</td>
+
+            <td>
+                <form action="~/Trainer/PrepareModify" method="post">
+                    <input type="hidden" value="@training.TrainingId" name="trainingId" />
+                    <input type="submit" class="btn btn-primary" value="Modify" />
+                </form>
+            </td>
+
+            <td>
+                <form action="~/Trainer/DeleteTraining" method="post">
+                    <input type="hidden" value="@training.TrainingId" name="trainingId" />
+                    <input type="submit" class="btn btn-primary" value="Delete" />
+                </form>
+            </td>
+
+            <td>
+                <form action="~/Trainer/Visitors" method="post">
+                    <input type="hidden" value="@training.TrainingId" name="trainingId" />
+                    <input type="submit" class="btn btn-primary" value="Participants" />
+                </form>
+            </td>
+
+
+        </tr>
+            }
+        }
+    </table>
+</div>
+

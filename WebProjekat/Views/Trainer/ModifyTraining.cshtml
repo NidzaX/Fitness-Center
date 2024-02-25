@@ -1,0 +1,68 @@
+﻿@using WebProject.Models
+@model GroupTraining
+<div class="jumbotron">
+    @{ if (ViewBag.Message != string.Empty)
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+            }
+        }
+
+    }
+
+                <form method="post" action="/Trainer/ModifyTraining">
+
+                    <div class="form-group">
+                        <label for="trainingName">Training name</label>
+                        <input type="text" required value="@Model.TrainingName" class="form-control" name="TrainingName" placeholder="Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trainingType">Training type</label>
+                        <select class="form-control" name="trainingType" id="trainingType">
+
+                            @{
+                                <option value="@Model.TrainingType">@Model.TrainingType</option>
+                                foreach (TrainingType type in Enum.GetValues(typeof(TrainingType)))
+                                {
+                                    if (type != Model.TrainingType)
+                                    {
+                                        <option value="@type">@type</option>
+                                    }
+                                }
+
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="length">Training length</label>
+                        <input type="number" required class="form-control" value="@Model.Length" name="length" placeholder="Length" min="10" />
+                    </div>
+                    @{
+                        int minCount = Model.Visitors.Count;
+                    }
+
+                    <div class="form-group">
+                        <label for="allowedVisitors">Maximum visitors</label>
+                        <input type="number" required class="form-control" min="@minCount" value="@Model.AllowedVisitors" name="allowedVisitors" placeholder="Maximum visitors" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeOfTraining">Training time</label>
+                        <input type="datetime-local" value="@Model.TimeOfTraining.ToString("yyyy-MM-ddThh:mm")" min="@Model.TimeOfTraining.ToString("yyyy-MM-ddThh:mm")" required class="form-control" name="timeOfTraining" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" value="@Model.TrainingId" name="trainingId" />
+                        <input type="hidden" value="@Model.FitnessCenter" name="fitnessCenter" />
+
+                        <input type="submit" class="btn btn-success" value="Modify training" />
+                        <a href="~/Home/Index" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+
+</div>
+

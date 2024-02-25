@@ -1,0 +1,122 @@
+﻿@using WebProject.Models
+@{
+    FitnessCentre fitnessCentre = HttpContext.Current.Application["CentreDetails"] as FitnessCentre;
+}
+
+
+
+
+
+
+<div class="row">
+
+    </br>
+    </br>
+    </br>
+    <div class="col-md-4">
+        <p><b class="text-info">Centre name:</b> @fitnessCentre.CenterName</p>
+        <p><b class="text-info">Cenre address:</b> @fitnessCentre.Address</p>
+        <p><b class="text-info">Opening year:</b> @fitnessCentre.OpeningYear</p>
+
+    </div>
+    <div class="col-md-4">
+        <p><b class="text-info">Monthly membership:</b> @fitnessCentre.MonthlyMembership din</p>
+        <p><b class="text-info">Yearly membership:</b> @fitnessCentre.YearlyMembership din</p>
+        <p><b class="text-info">Single training:</b> @fitnessCentre.TrainingCost din</p>
+
+    </div>
+
+    <div class="col-md-4">
+        <p><b class="text-info">Group training:</b> @fitnessCentre.GroupTrainingCost din</p>
+        <p><b class="text-info">Personal training:</b> @fitnessCentre.PersonalTrainingCost din</p>
+
+    </div>
+
+
+</div>
+</br></br>
+
+<div class="jumbotron">
+    <h3 class="text-primary">Future trainings</h3>
+
+    @{ if (ViewBag.Message != string.Empty)
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+            }
+        }
+
+    }
+
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Training type</th>
+            <th>Length</th>
+            <th>Time of training</th>
+            <th>Max visitors</th>
+            <th>Enrolled visitors</th>
+        </tr>
+        @{
+            foreach (var training in fitnessCentre.FutureTrainings)
+            {
+                <tr>
+                    <td>@training.TrainingName</td>
+                    <td>@training.TrainingType</td>
+                    <td>@training.Length</td>
+                    <td>@training.TimeOfTraining.ToString("dd-MM-yyyy HH:mm")</td>
+                    <td>@training.AllowedVisitors</td>
+                    <td>@training.Visitors.Count</td>
+                    @{
+                        if (Session["LoggedUser"] != null)
+                        {
+                            string username = Session["LoggedUser"] as string;
+                            User user = (HttpContext.Current.Application["Users"] as Dictionary<string, User>)[username];
+
+                            if (user.UserRole == UserRole.Visitor)
+                            {
+                                <td>
+                                    <form action="~/Visitor/SignUp" method="post">
+                                        <input type="hidden" value="@training.TrainingId" name="trainingId" />
+                                        <input type="submit" class="btn btn-primary" value="Enroll" />
+                                    </form>
+                                </td>
+                            }
+                        }
+
+                    }
+                </tr>
+            }
+        }
+    </table>
+    </br>
+    </br>
+    </br>
+    <h3 class="text-primary">Approved comments</h3>
+    <table class="table">
+        <tr>
+            <th>Username</th>
+            <th>Grade</th>
+            <th>Comment</th>
+        </tr>
+        @{
+            foreach (var comment in fitnessCentre.Comments)
+            {
+
+                <tr>
+
+                    <td>@comment.Visitor</td>
+                    <td>@comment.Grade</td>
+                    <td>@comment.VisitorsComment</td>
+                </tr>
+
+            }
+
+        }
+
+    </table>
+
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GroupTraining xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TrainingName>BodyPump2</TrainingName>
+  <TrainingId>NewFit.BodyPump2</TrainingId>
+  <FitnessCenter>NewFit</FitnessCenter>
+  <TrainingType>BodyPump</TrainingType>
+  <Length>15</Length>
+  <TimeOfTraining>2022-09-16T01:06:00</TimeOfTraining>
+  <AllowedVisitors>5</AllowedVisitors>
+  <Visitors>
+    <string>newVisitor3</string>
+  </Visitors>
+  <Deleted>false</Deleted>
+</GroupTraining>

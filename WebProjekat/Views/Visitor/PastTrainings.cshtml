@@ -1,0 +1,77 @@
+﻿@using WebProject.Models
+@model IEnumerable<GroupTraining>
+
+<div class="row">
+
+    </br>
+    <div class="col-md-12">
+        <form action="/Visitor/SearchParameters" method="post">
+            <div class="form-inline">
+                <input type="text" name="name" placeholder="Name" class="form-control" />
+                <select name="trainingType" class="form-control">
+                    <option value="trainingType">Training Type</option>
+                    <option value="@TrainingType.LesMillsTone">Les mills tone</option>
+                    <option value="@TrainingType.Yoga">Yoga</option>
+                    <option value="@TrainingType.BodyPump">Body pump</option>
+                </select>
+                <input type="text" name="centreName" placeholder="Centre name" class="form-control" />
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+        </br>
+    </div>
+    <div class="col-md-4">
+        <form action="/Visitor/Sort" method="post">
+            <div class="form-inline">
+                <select name="sortValue" class="form-control">
+                    <option value="nameAscending">Name ascending</option>
+                    <option value="typeAscending">Type ascending</option>
+                    <option value="timeAscending">Training time ascending</option>
+                    <option value="nameDescending">Name descending</option>
+                    <option value="typeDescending">Type descending</option>
+                    <option value="timeDescending">Training time descending</option>
+                </select>
+                <input type="submit" value="Sort" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+</br></br>
+
+
+<div class="jumbotron">
+
+    <table class="table">
+        <tr>
+            <th>Fitness centre</th>
+            <th>Name</th>
+            <th>Training type</th>
+            <th>Length</th>
+            <th>Time of training</th>
+            <th>Max visitors</th>
+            <th>Enrolled visitors</th>
+
+        </tr>
+        @{
+            foreach (var training in Model)
+            {
+                <tr>
+                    <td>@training.FitnessCenter</td>
+                    <td>@training.TrainingName</td>
+                    <td>@training.TrainingType</td>
+                    <td>@training.Length</td>
+                    <td>@training.TimeOfTraining.ToString("dd-M-yyyy HH:mm")</td>
+                    <td>@training.AllowedVisitors</td>
+                    <td>@training.Visitors.Count</td>
+
+
+                </tr>
+            }
+        }
+    </table>
+</div>
+

@@ -1,0 +1,62 @@
+﻿
+<div class="jumbotron">
+    @{ if (ViewBag.Message != string.Empty)
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+            }
+        }
+
+    }
+
+                <form method="post" action="/Owner/CreateFitnessCentre">
+
+                    <div class="form-group">
+                        <label for="centerName">Name</label>
+                        <input type="text" required class="form-control" name="centerName" placeholder="Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="openingYear">Opening year</label>
+                        <input type="number" required class="form-control" name="openingYear" min="2000" placeholder="Opening year" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" required class="form-control" name="address" placeholder="Address" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="monthlyMembership">Monthly membership</label>
+                        <input type="number" required class="form-control" name="monthlyMembership" min="0" placeholder="Monthly memebership" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="yearlyMembership">Yearly membership</label>
+                        <input type="number" required class="form-control" name="yearlyMembership" min="0" placeholder="Yearly memebership" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trainingCost">Single training cost</label>
+                        <input type="number" required class="form-control" name="trainingCost" min="0" placeholder="Single training cost" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="groupTrainingCost">Group training cost</label>
+                        <input type="number" required class="form-control" name="groupTrainingCost" min="0" placeholder="Group training cost" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personalTrainingCost">Personal training cost</label>
+                        <input type="number" required class="form-control" name="personalTrainingCost" min="0" placeholder="Personal training cost" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="Create fitness centre" />
+                        <a href="~/Home/Index" class="btn btn-danger">Cancel</a>
+                    </div>
+                </form>
+</div>
+

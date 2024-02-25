@@ -1,0 +1,47 @@
+﻿@using WebProject.Models
+@model IEnumerable<string>
+
+<div class="jumbotron">
+    <form method="post" action="~/Visitor/AddComment">
+        <div class="form-group">
+            <label for="fitnessCenter">FitnessCenter</label>
+            <select name="fitnessCenter" class="form-control">
+                @{
+                    foreach (var centre in Model)
+                    {
+                        <option value="@centre">@centre</option>
+                    }
+                }
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="grade">Grade</label>
+            <input type="number" class="form-control" name="grade" required placeholder="Grade" min="1" max="5" />
+        </div>
+
+        <div class="form-group">
+            <label for="visitorsComment">Comment</label>
+            <input type="text" class="form-control" required placeholder="Comment" name="visitorsComment" />
+        </div>
+
+
+        <div class="form-group">
+            @{
+                if (Model.Count() != 0)
+                {
+                    <input type="submit" value="Add comment" class="btn btn-success" />
+                }
+                else
+                {
+                    <p class="text-danger">Cannot leave comment</p>
+                }
+                <a href="~/Home/Index" class="btn btn-danger">Cancel</a>
+            }
+        </div>
+
+       
+
+    </form>
+</div>

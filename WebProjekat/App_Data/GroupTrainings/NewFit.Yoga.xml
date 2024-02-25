@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GroupTraining xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TrainingName>Yoga</TrainingName>
+  <TrainingId>NewFit.Yoga</TrainingId>
+  <FitnessCenter>NewFit</FitnessCenter>
+  <TrainingType>Yoga</TrainingType>
+  <Length>15</Length>
+  <TimeOfTraining>2022-07-10T23:12:00</TimeOfTraining>
+  <AllowedVisitors>6</AllowedVisitors>
+  <Visitors>
+    <string>Visitor1</string>
+  </Visitors>
+  <Deleted>false</Deleted>
+</GroupTraining>

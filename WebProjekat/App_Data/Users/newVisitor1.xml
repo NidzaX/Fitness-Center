@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Username>newVisitor1</Username>
+  <Name>Visitor</Name>
+  <Lastname>Visitor</Lastname>
+  <Password>1234</Password>
+  <DateOfBirth>2004-02-08</DateOfBirth>
+  <Email>nikolic@sdasd.com</Email>
+  <Gender>Male</Gender>
+  <UserRole>Visitor</UserRole>
+  <LoginBlocked>false</LoginBlocked>
+</User>

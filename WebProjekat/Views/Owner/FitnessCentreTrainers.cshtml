@@ -1,0 +1,48 @@
+﻿@using WebProject.Models
+@model IEnumerable<User>
+
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Date of birth</th>
+        <th>Gender</th>
+        <th>Fitness centre</th>
+        <th></th>
+    </tr>
+    @{
+        foreach (var trainer in Model)
+        {
+    <tr>
+
+        <td>@trainer.Username</td>
+        <td>@trainer.Name</td>
+        <td>@trainer.Lastname</td>
+        <td>@trainer.Email</td>
+        <td>@trainer.DateOfBirth</td>
+        <td>@trainer.Gender</td>
+        <td>@trainer.FitnessCentre</td>
+
+        @{
+            if (trainer.LoginBlocked)
+            {
+                <td class="text-primary">BLOCKED</td>
+            }
+            else
+            {
+                <td>
+                    <form action="/Owner/BlockTrainer" method="post">
+                        <input type="hidden" name="username" value="@trainer.Username" />
+                        <input type="submit" value="Block" class="btn btn-primary" />
+
+                    </form>
+                </td>
+            }
+        }
+
+    </tr>
+        }
+    }
+</table>

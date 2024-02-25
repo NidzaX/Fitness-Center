@@ -1,0 +1,56 @@
+﻿@using WebProject.Models
+
+<div class="jumbotron">
+    @{ if (ViewBag.Message != string.Empty)
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+            }
+        }
+
+    }
+
+    <form method="post" action="/Trainer/CreateTraining">
+
+        <div class="form-group">
+            <label for="trainingName">Training name</label>
+            <input type="text" required class="form-control" name="TrainingName" placeholder="Name"  />
+        </div>
+
+        <div class="form-group">
+            <label for="trainingType">Training type</label>
+            <select class="form-control" name="trainingType" id="trainingType">
+                @{
+                    <option value="@TrainingType.BodyPump">Body pump</option>
+                    <option value="@TrainingType.Yoga">Yoga</option>
+                    <option value="@TrainingType.LesMillsTone ">Les mills tone</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="length">Training length</label>
+            <input type="number" required class="form-control" name="length" placeholder="Length" min="10"  />
+        </div>
+
+        <div class="form-group">
+            <label for="allowedVisitors">Maximum visitors</label>
+            <input type="number" required class="form-control" name="allowedVisitors" placeholder="Maximum visitors" min="1"  />
+        </div>
+
+        <div class="form-group">
+            <label for="timeOfTraining">Training time</label>
+            <input type="datetime-local" required class="form-control" name="timeOfTraining" />
+        </div>
+
+        <div class="form-group">
+
+            <input type="submit" class="btn btn-success" value="Create training" />
+            <a href="~/Home/Index" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
+
+</div>
+

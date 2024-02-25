@@ -1,0 +1,81 @@
+﻿@using WebProject.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                        <li><a href="~/Home/Index">Home</a></li>
+
+                        if (Session["LoggedUser"] == null)
+                        {
+
+                            <li><a href="~/Login/Login">Login</a></li>
+                            <li><a href="~/Login/Register">Register</a></li>
+                        }
+                        else
+                        {
+                            string username = Session["LoggedUser"] as string;
+                            User user = (HttpContext.Current.Application["Users"] as Dictionary<string, User>)[username];
+
+                            <li><a href="~/Login/ModifyUser">Edit profile</a></li>
+
+                            if (user.UserRole == UserRole.Owner)
+                            {
+                                <li><a href="~/Owner/RegisterTrainer">Register new trainer</a></li>
+                                <li><a href="~/Owner/CreateFitnessCentre">Add new centre</a></li>
+                                <li><a href="~/Owner/MyCentres">My centres</a></li>
+                                <li><a href="~/Owner/FitnessCentreTrainers">Trainers</a></li>
+                                <li><a href="~/Owner/Comments">All comments</a></li>
+
+
+                            }
+                            else if (user.UserRole == UserRole.Visitor)
+                            {
+                                <li><a href="~/Visitor/PastTrainings">Past trainings</a></li>
+                                <li><a href="~/Visitor/AddComment">Leave comment</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="~/Trainer/CreateTraining">Add training</a></li>
+                                <li><a href="~/Trainer/FutureTrainings">Future trainings</a></li>
+                                <li><a href="~/Trainer/PastTrainings">Past trainings</a></li>
+                            }
+                            <li><a href="~/Login/LogOut">Log out</a></li>
+
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        
+        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Username>newVisitor3</Username>
+  <Name>Visitor1</Name>
+  <Lastname>Visitor</Lastname>
+  <Password>1234</Password>
+  <DateOfBirth>2006-06-08</DateOfBirth>
+  <Email>email@email.com</Email>
+  <Gender>Male</Gender>
+  <UserRole>Visitor</UserRole>
+  <LoginBlocked>false</LoginBlocked>
+  <GroupTrainings>
+    <GroupTraining>
+      <TrainingName>BodyPump2</TrainingName>
+      <TrainingId>NewFit.BodyPump2</TrainingId>
+      <FitnessCenter>NewFit</FitnessCenter>
+      <TrainingType>BodyPump</TrainingType>
+      <Length>10</Length>
+      <TimeOfTraining>2022-09-16T01:06:00</TimeOfTraining>
+      <AllowedVisitors>5</AllowedVisitors>
+      <Visitors>
+        <string>newVisitor3</string>
+      </Visitors>
+      <Deleted>false</Deleted>
+    </GroupTraining>
+    <GroupTraining>
+      <TrainingName>BodyPump22</TrainingName>
+      <TrainingId>NewFit.BodyPump22</TrainingId>
+      <FitnessCenter>NewFit</FitnessCenter>
+      <TrainingType>BodyPump</TrainingType>
+      <Length>13</Length>
+      <TimeOfTraining>2022-09-13T13:07:00</TimeOfTraining>
+      <AllowedVisitors>3</AllowedVisitors>
+      <Visitors>
+        <string>Visitor1</string>
+        <string>newVisitor3</string>
+      </Visitors>
+      <Deleted>false</Deleted>
+    </GroupTraining>
+  </GroupTrainings>
+</User>

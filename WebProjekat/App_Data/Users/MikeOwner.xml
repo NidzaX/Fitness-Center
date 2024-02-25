@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Username>MikeOwner</Username>
+  <Name>Milos</Name>
+  <Lastname>Jankovic</Lastname>
+  <Password>1234</Password>
+  <DateOfBirth>08-03-1995</DateOfBirth>
+  <Email>milosjankovic@gmail.com</Email>
+  <Gender>Male</Gender>
+  <UserRole>Owner</UserRole>
+  <LoginBlocked>false</LoginBlocked>
+  <GroupTrainings>
+    <GroupTraining>
+      <TrainingName>BodyPump2</TrainingName>
+      <TrainingId>NewFit.BodyPump2</TrainingId>
+      <FitnessCenter>NewFit</FitnessCenter>
+      <TrainingType>BodyPump</TrainingType>
+      <Length>15</Length>
+      <TimeOfTraining>2022-09-16T01:06:00</TimeOfTraining>
+      <AllowedVisitors>5</AllowedVisitors>
+      <Visitors>
+        <string>newVisitor3</string>
+      </Visitors>
+      <Deleted>false</Deleted>
+    </GroupTraining>
+  </GroupTrainings>
+  <FitnessCentres>
+    <FitnessCentre>
+      <CenterName>NewFit</CenterName>
+      <Address>Bulevar Oslobodjenja 55, Novi Sad, 21100</Address>
+      <OpeningYear>2018</OpeningYear>
+      <OwnerUsername>MikeOwner</OwnerUsername>
+      <MonthlyMembership>3200</MonthlyMembership>
+      <YearlyMembership>32000</YearlyMembership>
+      <TrainingCost>400</TrainingCost>
+      <GroupTrainingCost>600</GroupTrainingCost>
+      <PersonalTrainingCost>950</PersonalTrainingCost>
+      <Deleted>false</Deleted>
+      <FutureTrainings>
+        <GroupTraining>
+          <TrainingName>BodyPump2</TrainingName>
+          <TrainingId>NewFit.BodyPump2</TrainingId>
+          <FitnessCenter>NewFit</FitnessCenter>
+          <TrainingType>BodyPump</TrainingType>
+          <Length>15</Length>
+          <TimeOfTraining>2022-09-16T01:06:00</TimeOfTraining>
+          <AllowedVisitors>5</AllowedVisitors>
+          <Visitors>
+            <string>newVisitor3</string>
+          </Visitors>
+          <Deleted>false</Deleted>
+        </GroupTraining>
+        <GroupTraining>
+          <TrainingName>BodyPump22</TrainingName>
+          <TrainingId>NewFit.BodyPump22</TrainingId>
+          <FitnessCenter>NewFit</FitnessCenter>
+          <TrainingType>BodyPump</TrainingType>
+          <Length>13</Length>
+          <TimeOfTraining>2022-09-13T13:07:00</TimeOfTraining>
+          <AllowedVisitors>3</AllowedVisitors>
+          <Visitors>
+            <string>Visitor1</string>
+            <string>newVisitor3</string>
+          </Visitors>
+          <Deleted>false</Deleted>
+        </GroupTraining>
+      </FutureTrainings>
+      <Comments>
+        <Comment>
+          <Visitor>Visitor1</Visitor>
+          <FitnessCenter>NewFit</FitnessCenter>
+          <Grade>3</Grade>
+          <VisitorsComment>Not so good</VisitorsComment>
+          <Approved>true</Approved>
+          <Declined>false</Declined>
+          <Id>5a74a365-4597-46b8-99a0-99b97e633677</Id>
+        </Comment>
+      </Comments>
+    </FitnessCentre>
+    <FitnessCentre>
+      <CenterName>CreativeGym</CenterName>
+      <Address>Marsala Tita 55, Novi Sad, 21100</Address>
+      <OpeningYear>2014</OpeningYear>
+      <OwnerUsername>MikeOwner</OwnerUsername>
+      <MonthlyMembership>3000</MonthlyMembership>
+      <YearlyMembership>30000</YearlyMembership>
+      <TrainingCost>200</TrainingCost>
+      <GroupTrainingCost>650</GroupTrainingCost>
+      <PersonalTrainingCost>789</PersonalTrainingCost>
+      <Deleted>true</Deleted>
+      <FutureTrainings />
+      <Comments />
+    </FitnessCentre>
+    <FitnessCentre>
+      <CenterName>BestFit</CenterName>
+      <Address>Ive Andrica 22, Novi Sad, 21100</Address>
+      <OpeningYear>2004</OpeningYear>
+      <OwnerUsername>MikeOwner</OwnerUsername>
+      <MonthlyMembership>3200</MonthlyMembership>
+      <YearlyMembership>32000</YearlyMembership>
+      <TrainingCost>500</TrainingCost>
+      <GroupTrainingCost>700</GroupTrainingCost>
+      <PersonalTrainingCost>950</PersonalTrainingCost>
+      <Deleted>false</Deleted>
+      <FutureTrainings />
+      <Comments />
+    </FitnessCentre>
+    <FitnessCentre>
+      <CenterName>CreativeGym2</CenterName>
+      <Address>Ive Andrica 23, Novi Sad, 21100</Address>
+      <OpeningYear>2009</OpeningYear>
+      <OwnerUsername>MikeOwner</OwnerUsername>
+      <MonthlyMembership>9</MonthlyMembership>
+      <YearlyMembership>11</YearlyMembership>
+      <TrainingCost>13</TrainingCost>
+      <GroupTrainingCost>6</GroupTrainingCost>
+      <PersonalTrainingCost>7</PersonalTrainingCost>
+      <Deleted>true</Deleted>
+    </FitnessCentre>
+  </FitnessCentres>
+</User>

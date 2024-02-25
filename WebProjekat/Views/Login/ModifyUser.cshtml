@@ -1,0 +1,67 @@
+﻿@using WebProject.Models
+@model User
+
+
+<div class="jumbotron">
+
+
+    @{ if (ViewBag.Message != string.Empty)
+        {
+            {
+                <div class="alert alert-danger" role="alert">
+                    <p>@ViewBag.Message</p>
+                </div>
+            }
+        }
+
+    }
+
+                <form action="/Login/ModifyUser" method="post">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" required value="@Model.Name" class="form-control" id="name" name="name" placeholder="Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" value="@Model.Lastname" required class="form-control" name="lastname" placeholder="Lastname">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" value="@Model.Password" autocomplete="on" required class="form-control" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of birth</label>
+                        <input type="date" value="@Model.DateOfBirth" required class="form-control" name="dateOfBirth" placeholder="DateOfBirth">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" autocomplete="on" value="@Model.Email" class="form-control" required name="email" placeholder="email@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" name="gender">
+                            @{
+                                <option value="@Model.Gender">@Model.Gender</option>
+                                foreach (Gender gender in Enum.GetValues(typeof(Gender)))
+                                {
+                                    if (gender != Model.Gender)
+                                    {
+                                        <option value="@gender">@gender</option>
+                                    }
+                                }
+
+                            }
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn btn-success" value="Modify" />
+                    <a href="~/Home/Index" class="btn btn-danger">Cancel</a>
+                </form>
+</div>

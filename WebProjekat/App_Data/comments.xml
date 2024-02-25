@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommentList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Comments>
+    <Comment>
+      <Visitor>Visitor1</Visitor>
+      <FitnessCenter>NewFit</FitnessCenter>
+      <Grade>5</Grade>
+      <VisitorsComment>Excellent</VisitorsComment>
+      <Approved>false</Approved>
+      <Declined>true</Declined>
+      <Id>dc1a1dc7-d978-447d-acda-1c6e484d7562</Id>
+    </Comment>
+    <Comment>
+      <Visitor>Visitor1</Visitor>
+      <FitnessCenter>NewFit</FitnessCenter>
+      <Grade>3</Grade>
+      <VisitorsComment>Not so good</VisitorsComment>
+      <Approved>true</Approved>
+      <Declined>false</Declined>
+      <Id>5a74a365-4597-46b8-99a0-99b97e633677</Id>
+    </Comment>
+    <Comment>
+      <Visitor>Visitor1</Visitor>
+      <FitnessCenter>NewFit</FitnessCenter>
+      <Grade>5</Grade>
+      <VisitorsComment>Everything was excellent</VisitorsComment>
+      <Approved>false</Approved>
+      <Declined>true</Declined>
+      <Id>17061784-19cb-4014-b674-08ac45c6c7f8</Id>
+    </Comment>
+  </Comments>
+</CommentList>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<User xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Username>newUser</Username>
+  <Name>User</Name>
+  <Lastname>User</Lastname>
+  <Password>1234</Password>
+  <DateOfBirth>2006-02-08</DateOfBirth>
+  <Email>email@email.com</Email>
+  <Gender>Female</Gender>
+  <UserRole>Visitor</UserRole>
+  <LoginBlocked>false</LoginBlocked>
+  <GroupTrainings />
+</User>
